@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ApiCallingProject.Views.AnimeSongPage"
+             xmlns:viewModel="clr-namespace:ApiCallingProject.ViewModels"
+             xmlns:services="clr-namespace:ApiCallingProject.Services">
+    <ContentPage.BindingContext>
+        <viewModel:AnimeSongViewModel>
+            <x:Arguments>
+                <services:AniAPIService/>
+            </x:Arguments>
+        </viewModel:AnimeSongViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Get Anime Songs List" Command="{Binding GetAnimeSongsList}"/>
+            <CollectionView ItemsSource="{Binding AnimeSongs}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto, Auto">
+                            <Label Grid.Column="0" Grid.Row="0" Text="Title: "/>
+                            <Label Grid.Column="1"  Grid.Row="0" Text="{Binding Title}" TextColor="White" />
+                            <Label Grid.Column="0" Grid.Row="1" Text="By: "/>
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Artist}" TextColor="White" />
+                            <Label Grid.Column="0" Grid.Row="2" Text="Type: "/>
+                            <Label Grid.Column="1" Grid.Row="2" Text="{Binding Type}" TextColor="White" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

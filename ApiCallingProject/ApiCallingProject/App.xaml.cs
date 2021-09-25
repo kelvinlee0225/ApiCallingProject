@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ApiCallingProject.Services;
+using ApiCallingProject.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +12,7 @@ namespace ApiCallingProject
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new AnimeSongPage();
         }
 
         protected override void OnStart()
